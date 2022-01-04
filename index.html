@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <header>
+        <section id="header-section">
+            <label for="title">ToDoList</label>
+            <input type="text" id="title" name="title" placeholder="请输入ToDo" autocomplete="off">
+            <button id="add-btn">添加</button>
+        </section>
+    </header>
+        
+    <main>
+        <section id="content">
+            <h1>正在进行 <span id="todoCount"></span></h1>
+            <ul id="todoList"></ul>
+            <h1 class="green">已经完成 <span id="doneCount"></span></h1>
+            <ul id="doneList"></ul>
+        </section>
+    </main>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
