@@ -16,7 +16,7 @@ header section input {
     transform: translateY(-11%);
     padding-left: 1em;
     height: 36px;
-    width: 50%;
+    width: 45%;
     font-size: 15px;
     border-radius: 5px;
     border-color: #c845da;
@@ -26,7 +26,7 @@ header section button {
     transform: translateY(-11%);
     margin-left: 2%;
     height: 36px;
-    width: 7%;
+    width:  15%;
     font-size: 15px;
     border-radius: 5px;
     border-color: #c845da;
