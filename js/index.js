@@ -4,7 +4,7 @@ function getCurrentTimeStr() {
     const hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
     const minute = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
     const second = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
-    return [hour, minute, second].join(' : ');
+    return [hour, minute, second].join(':');
 }
 setInterval(() => {
     const str = getCurrentTimeStr();
@@ -14,6 +14,10 @@ setInterval(() => {
 let data = {
     todoArr: [],
     doneArr: []
+};
+let datadel = {
+    todoDel: [],
+    doneDel: []
 };
 
 function main() {
@@ -70,25 +74,50 @@ function main() {
         }
     );
 
-    //通过事件代理的方式，监听img派发的click事件
+    //通过事件代理的方式，监听img(del删除和quash撤销和edit编辑)派发的click事件
     contentDom.addEventListener(
         "click",
         (event) => {
             let target = event.target;
-            if(target.dataset.from === "todo" && target.tagName ==="IMG") {
+            if(target.dataset.from === "todo" && target.id ==="del") {
                 let index = +target.dataset.index;
-                data.todoArr.splice(index, 1);
+                let value = data.todoArr.splice(index, 1);
                 render(data);
-            } else if (target.dataset.from ==="done" && target.tagName === "IMG") {
+                datadel.todoDel[datadel.todoDel.length] = value;
+            } else if (target.dataset.from ==="done" && target.id === "del") {
                 let index = +target.dataset.index;
-                data.doneArr.splice(index, 1);
+                let value = data.doneArr.splice(index, 1);
                 render(data);
+                datadel.doneDel[datadel.todoDel.length] = value;
+            } else if (target.dataset.from ==="todo" && target.id === "quash" && datadel.todoDel.length > 0) {
+                let value = datadel.todoDel.splice(datadel.todoDel.length-1, 1);
+                data.todoArr.push(value);
+                render(data);
+            } else if (target.dataset.from ==="done" && target.id === "quash" && datadel.doneDel.length > 0) {
+                let value = datadel.doneDel.splice(datadel.doneDel.length-1, 1);
+                data.doneArr.push(value);
+                render(data);
+            } else if (target.dataset.from ==="todo" && target.id === "edit") {
+                let index = +target.dataset.index;
+                let promptResult = window.prompt("修改todo", data.todoArr[index]);
+                if(promptResult !== null) {
+                    data.todoArr[index] = promptResult;
+                    render(data);
+                }
+            } else if (target.dataset.from ==="done" && target.id === "edit") {
+                let index = +target.dataset.index;
+                let promptResult = window.prompt("修改done", data.doneArr[index]);
+                if(promptResult !== null) {
+                    data.doneArr[index] = promptResult;
+                    render(data);
+                }
             }
         }
     );
 }
 
 let imgSrc = "./img/delete.png";
+let editSrc = "./img/edit.png";
 
 function render(data) {
     localStorage.setItem("todo", JSON.stringify(data));
@@ -109,7 +138,8 @@ function render(data) {
           <li>
           <input type="checkbox" data-from="todo" data-index="${i}"></input>
           <span>${todoArr[i]}</span>
-          <img src="${imgSrc}" data-from="todo" data-index="${i}"></img>
+          <img src="${editSrc}" id="edit" data-from="todo" data-index="${i}"></img>
+          <img src="${imgSrc}" id="del" data-from="todo" data-index="${i}"></img>
           </li>`;
     }
     todoContainer.innerHTML = todoHTML;
@@ -127,13 +157,21 @@ function render(data) {
         let span = document.createElement("span");
         span.textContent = doneArr[i];
 
+        let img1 = document.createElement("img");
+        img1.src = editSrc;
+        img1.id = "edit";
+        img1.dataset.index = i;
+        img1.dataset.from = "done";
+
         let img = document.createElement("img");
         img.src = imgSrc;
+        img.id = "del";
         img.dataset.index = i;
         img.dataset.from = "done";
 
         li.appendChild(input);
         li.appendChild(span);
+        li.appendChild(img1);
         li.appendChild(img);
         doneContainer.appendChild(li);
     }
