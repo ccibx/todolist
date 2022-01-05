@@ -12,8 +12,8 @@ header section {
 }
 header section label {
     padding-top: 10px;
-    width: 15%;
-    padding-right: 2%;
+    width: 200px;
+    margin-right: 2%;
     font-size: 26px;
     line-height: 60px;
     color: white;
