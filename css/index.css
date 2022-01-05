@@ -110,7 +110,7 @@ h1 span img {
         left: 0%;
     }
     100% {
-        left: 35%;
+        left: 50%;
         transform: translateX(-50%);
     }
 }
