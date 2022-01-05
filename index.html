@@ -11,7 +11,9 @@
 <body>
     <header>
         <section id="header-section">
-            <label for="title">ToDoList</label>
+            <label id="clock" for="title">  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+            </label>
             <input type="text" id="title" name="title" placeholder="请输入ToDo" autocomplete="off">
             <button id="add-btn">添加</button>
         </section>
@@ -19,11 +21,16 @@
         
     <main>
         <section id="content">
-            <h1>正在进行 <span id="todoCount"></span></h1>
+            <h1>正在进行
+                <span><img src="img/todo_img.png" alt="">
+                </span><span id="todoCount"></span></h1>
             <ul id="todoList"></ul>
-            <h1 class="green">已经完成 <span id="doneCount"></span></h1>
+            <h1 class="green">已经完成 
+                <span><img src="img/done.png" alt="">
+                <span id="doneCount"></span></h1>
             <ul id="doneList"></ul>
         </section>
+        <div class="bear"></div>
     </main>
     <script type="text/javascript" src="js/index.js"></script>
 </body>

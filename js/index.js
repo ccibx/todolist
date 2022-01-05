@@ -1,3 +1,16 @@
+//使用内置对象Date
+function getCurrentTimeStr() {
+    const date = new Date();
+    const hour = date.getHours() > 9 ? date.getHours() : '0' + date.getHours();
+    const minute = date.getMinutes() > 9 ? date.getMinutes() : '0' + date.getMinutes();
+    const second = date.getSeconds() > 9 ? date.getSeconds() : '0' + date.getSeconds();
+    return [hour, minute, second].join(' : ');
+}
+setInterval(() => {
+    const str = getCurrentTimeStr();
+    let labelDom = document.getElementById("clock");
+    labelDom.textContent = ''+str},1000);
+
 let data = {
     todoArr: [],
     doneArr: []
@@ -75,7 +88,7 @@ function main() {
     );
 }
 
-let imgSrc = "./img/todolist_deleteImg.jpg";
+let imgSrc = "./img/delete.png";
 
 function render(data) {
     localStorage.setItem("todo", JSON.stringify(data));
