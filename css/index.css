@@ -45,7 +45,7 @@ header section button:hover {
 header section .birthday {
     display: inline-block;
     position: absolute;
-    top: 50%;
+    top: 30px;
     opacity: 0.8;
     transform: translateY(-50%);
     margin-left: 2%;
