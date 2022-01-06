@@ -46,6 +46,7 @@ header section .birthday {
     display: inline-block;
     position: absolute;
     left: 50%;
+    bottom: 150px;
     opacity: 0.5;
     transform: translate(-50%, -11%);
     margin-left: 2%;
