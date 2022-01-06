@@ -47,7 +47,9 @@ header section .birthday {
     transform: translateY(-11%);
     margin-left: 2%;
     height: 32px;
-    width: 15%;
+    width: 6%;
+    color: black; 
+    font-weight: 700;
     font-size: 15px;
     text-align: center;
     line-height: 32px;

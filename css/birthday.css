@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .container {
+    background: linear-gradient(#07112c, #2355d6);
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .land {
+    position: relative;
+    z-index: 20;
+    height: 60vh;
+    margin-top: 75vh;
+    width: 300%;
+    background: linear-gradient(#072945 0%, #000 30%);
+    border-radius: 50%;
+    margin-left: -100vw;
+  }
+
+  .happy-birthday__container {
+    position: absolute;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    opacity: .6;
+    transition: all 2s;
+  }
+
+  .happy-birthday__container>div {
+    height: 50px;
+    width: 50px;
+    margin: -10px 10px;
+    flex: 0 1 auto;
+  }
+
+  .person {
+    position: absolute;
+    z-index: 99;
+    top: calc(75vh - 100px);
+    left: calc(50vw - 30px);
+    height: 100px;
+    width: 60px;
+  }
+
+  .person-reflect {
+    -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(0, 0, 0, 0.6)));
+  }
+
+  .head {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background-color: #000;
+    border-radius: 50%;
+    margin-left: 10px;
+    z-index: 99;
+  }
+
+  .body-container {
+    margin-left: 15px;
+    margin-top: -10px;
+    width: 30px;
+    position: relative;
+    z-index: 20;
+  }
+
+  .body-content {
+    width: 100%;
+    height: 35px;
+    background-color: #000;
+  }
+
+  .body-radius {
+    width: 100%;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-top: -5px;
+  }
+
+  .legs {
+    margin-left: 15px;
+    margin-top: -6px;
+    height: 30px;
+    width: 36px;
+  }
+
+  .left {
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 35px solid #000;
+  }
+
+  .right {
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-left: 7px solid transparent;
+    border-top: 35px solid #000;
+  }
+
+  .left-hand {
+    position: absolute;
+    height: 35px;
+    width: 10px;
+    background-color: #000;
+    border-radius: 50%;
+    left: 10px;
+    top: 35px;
+    z-index: 1;
+  }
+
+  .right-hand {
+    position: absolute;
+    width: 9px;
+    height: 50px;
+    background-color: #000;
+    left: 34px;
+    top: 9px;
+    border-radius: 50%;
+    transform: rotate(20deg);
+    z-index: 1;
+    transform-origin: 100% 100%;
+    animation: right-hand 1s infinite linear forwards;
+  }
+  @keyframes right-hand {
+      0% {
+          transform: rotate(20deg);
+      }
+      25% {
+          transform: rotate(30deg);
+      }
+      50% {
+          transform: rotate(20deg);
+      }
+      75% {
+          transform: rotate(10deg);
+      }
+      100% {
+          transform: rotate(20deg);
+      }
+  }
+  .person-show>.head {
+    background: linear-gradient(#072253, rgb(20, 19, 65));
+  }
+
+  .person-show>.body-container>div {
+    background-color: rgb(20, 19, 65);
+  }
+
+  .person-show>.left-hand,
+  .right-hand {
+    background-color: rgb(20, 19, 65);
+  }
+
+  .person-show .legs>div {
+    border-top-color: #151618;
+  }
+
+  @keyframes star-scale {
+    from {
+      transform: scale(1, 1);
+    }
+
+    25% {
+      transform: scale(0.1, 0.1);
+    }
+
+    50% {
+      transform: scale(1, 1);
+    }
+
+    25% {
+      transform: scale(2, 2);
+    }
+
+    to {
+      transform: scale(1, 1);
+    }
+  }
+
+  .star {
+    height: 3px;
+    width: 3px;
+    background-color: #faf89d;
+    border-radius: 50%;
+    position: absolute;
+    animation: star-scale 2s;
+    animation-iteration-count: infinite;
+  }
+
+  #my-canvas {
+    position: absolute;
+    width: 100%;
+    height: 80vh;
+  }
