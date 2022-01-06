@@ -126,9 +126,9 @@ const NAME_CONFIG = {
 const getWriterList = () => {
   let writerList = [];
   writerList.push(HanziWriter.create('sheng', '生', WRITER_CONFIG));
-  writerList.push(HanziWriter.create('ri', '日', WRITER_CONFIG));
+//   writerList.push(HanziWriter.create('ri', '日', WRITER_CONFIG));
   writerList.push(HanziWriter.create('kuai', '快', WRITER_CONFIG));
-  writerList.push(HanziWriter.create('le', '乐', WRITER_CONFIG));
+//   writerList.push(HanziWriter.create('le', '乐', WRITER_CONFIG));
 //   writerList.push(HanziWriter.create('ya', '吖', WRITER_CONFIG));
   writerList.push(HanziWriter.create('xiao', '小', NAME_CONFIG));
   writerList.push(HanziWriter.create('duan', '段', NAME_CONFIG));
