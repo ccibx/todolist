@@ -12,7 +12,7 @@ header section {
 }
 header section label {
     padding-top: 10px;
-    width: 200px;
+    width: 15%;
     margin-right: 2%;
     font-size: 26px;
     line-height: 60px;
@@ -39,6 +39,23 @@ header section button {
     background-color: white;
 }
 header section button:hover {
+    background-color: rgb(68, 179, 187);
+    color: azure;
+}
+header section .birthday {
+    display: inline-block;
+    transform: translateY(-11%);
+    margin-left: 2%;
+    height: 32px;
+    width: 15%;
+    font-size: 15px;
+    text-align: center;
+    line-height: 32px;
+    border-radius: 5px;
+    border: 1px solid rgb(39, 2, 44)a;
+    background-color: white;
+}
+header section .birthday:hover {
     background-color: rgb(68, 179, 187);
     color: azure;
 }
