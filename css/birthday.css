@@ -36,8 +36,8 @@
   }
 
   .happy-birthday__container>div {
-    height: 37px;
-    width: 37px;
+    height: 50px;
+    width: 50px;
     margin: -10px 10px;
     flex: 0 1 auto;
   }
